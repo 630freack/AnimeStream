@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniStream - Лучшие аниме онлайн</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/anime.png">
+</head>
+<body>
+<!-- Шапка сайта -->
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <i class="fas fa-play-circle"></i>
+        <span class="logo-text">Ani<span class="logo-accent">Stream</span></span>
+      </div>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item active"><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
+          <li class="nav-item"><a href="#popular"><i class="fas fa-fire"></i> Популярное</a></li>
+          <li class="nav-item"><a href="#new"><i class="fas fa-star"></i> Новинки</a></li>
+          <li class="nav-item"><a href="#genres"><i class="fas fa-tags"></i> Жанры</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <div class="search-box">
+          <input type="text" placeholder="Поиск аниме..." class="search-input">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <button class="user-btn">
+          <i class="fas fa-user"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="main-content">
+  <!-- Герой-секция -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-info">
+          <span class="hero-badge">Аниме недели</span>
+          <h1 class="hero-title" id="featured-title">Атака Титанов</h1>
+          <div class="hero-meta">
+            <span class="meta-item"><i class="fas fa-calendar"></i> 2013</span>
+            <span class="meta-item"><i class="fas fa-clock"></i> 25 эп.</span>
+            <span class="meta-item"><i class="fas fa-star"></i> 9.0</span>
+            <span class="meta-item"><i class="fas fa-tag"></i> Экшен, Драма</span>
+          </div>
+          <p class="hero-description" id="featured-description">
+            Человечество живёт в городах, окружённых огромными стенами, защищающими людей от гигантских существ — титанов. Эрен Йегер клянётся уничтожить всех титанов после того, как они разрушают его родной город и убивают его мать.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary watch-btn" id="watch-featured">
+              <i class="fas fa-play"></i> Смотреть сейчас
+            </button>
+            <button class="btn btn-secondary">
+              <i class="fas fa-plus"></i> В избранное
+            </button>
+          </div>
+        </div>
+        <div class="hero-poster">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+               alt="Атака Титанов" class="hero-img" id="featured-poster">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Видеоплеер (скрыт по умолчанию) -->
+  <section class="player-section" id="player-section">
+    <div class="container">
+      <div class="player-header">
+        <h2 class="player-title" id="player-anime-title">Атака Титанов</h2>
+        <button class="close-player" id="close-player">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video class="video-player" id="video-player" poster="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+          </video>
+
+          <!-- Кастомный видеоплеер -->
+          <div class="custom-player">
+            <div class="player-controls">
+              <button class="control-btn play-pause" id="play-pause">
+                <i class="fas fa-play"></i>
+              </button>
+
+              <div class="time-controls">
+                <span class="current-time" id="current-time">0:00</span>
+                <div class="progress-container">
+                  <div class="progress-bar" id="progress-bar"></div>
+                  <input type="range" class="progress-slider" id="progress-slider" min="0" max="100" value="0">
+                </div>
+                <span class="duration" id="duration">0:00</span>
+              </div>
+
+              <div class="right-controls">
+                <button class="control-btn volume-btn" id="volume-btn">
+                  <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="volume-slider-container">
+                  <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="100">
+                </div>
+
+                <div class="speed-control">
+                  <button class="control-btn speed-btn" id="speed-btn">
+                    <span>1x</span>
+                  </button>
+                  <div class="speed-options" id="speed-options">
+                    <button data-speed="0.5">0.5x</button>
+                    <button data-speed="1" class="active">1x</button>
+                    <button data-speed="1.5">1.5x</button>
+                    <button data-speed="2">2x</button>
+                  </div>
+                </div>
+
+                <button class="control-btn fullscreen-btn" id="fullscreen-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="player-info">
+              <div class="episode-info">
+                <span>Эпизод 1: "К вам, 2000 лет спустя"</span>
+              </div>
+              <button class="next-episode-btn" id="next-episode">
+                <i class="fas fa-forward"></i> Следующий
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="player-sidebar">
+          <div class="anime-info">
+            <h3 class="sidebar-title">Информация об аниме</h3>
+            <div class="anime-details">
+              <div class="detail-item">
+                <span class="detail-label">Рейтинг:</span>
+                <span class="detail-value rating-value">
+                                        <i class="fas fa-star"></i> 9.0/10
+                                    </span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Жанры:</span>
+                <span class="detail-value" id="player-genres">Экшен, Драма, Фэнтези</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Год:</span>
+                <span class="detail-value" id="player-year">2013</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Эпизоды:</span>
+                <span class="detail-value" id="player-episodes">25</span>
+              </div>
+            </div>
+
+            <div class="synopsis">
+              <h4 class="synopsis-title">Синопсис</h4>
+              <p class="synopsis-text" id="player-synopsis">
+                Человечество живёт в городах, окружённых огромными стенами, защищающими людей от гигантских существ — титанов. Эрен Йегер клянётся уничтожить всех титанов после того, как они разрушают его родной город и убивают его мать.
+              </p>
+            </div>
+          </div>
+
+          <div class="episode-list">
+            <h3 class="sidebar-title">Эпизоды</h3>
+            <div class="episodes">
+              <button class="episode-btn active">Эпизод 1</button>
+              <button class="episode-btn">Эпизод 2</button>
+              <button class="episode-btn">Эпизод 3</button>
+              <button class="episode-btn">Эпизод 4</button>
+              <button class="episode-btn">Эпизод 5</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Сетка карточек с аниме -->
+  <section class="anime-grid-section" id="popular">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Популярное сейчас</h2>
+        <div class="section-controls">
+          <button class="filter-btn active">Все</button>
+          <button class="filter-btn">Экшен</button>
+          <button class="filter-btn">Драма</button>
+          <button class="filter-btn">Комедия</button>
+          <button class="filter-btn">Фэнтези</button>
+        </div>
+      </div>
+
+      <div class="anime-grid" id="anime-grid">
+        <!-- Карточки будут добавлены через JavaScript -->
+      </div>
+
+      <div class="section-header" id="new">
+        <h2 class="section-title">Новые релизы</h2>
+      </div>
+
+      <div class="anime-grid" id="new-anime-grid">
+        <!-- Новые релизы будут добавлены через JavaScript -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Подвал сайта -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="logo">
+          <i class="fas fa-play-circle"></i>
+          <span class="logo-text">Ani<span class="logo-accent">Stream</span></span>
+        </div>
+        <p class="footer-description">
+          Лучшая платформа для просмотра аниме онлайн. Тысячи серий, высокое качество и удобный интерфейс.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3 class="footer-title">Навигация</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Главная</a></li>
+          <li><a href="#popular">Популярное</a></li>
+          <li><a href="#new">Новинки</a></li>
+          <li><a href="#genres">Жанры</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3 class="footer-title">Помощь</h3>
+        <ul class="footer-links">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Поддержка</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Условия использования</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3 class="footer-title">Подписка</h3>
+        <p>Подпишитесь на рассылку, чтобы быть в курсе новинок</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Ваш email" class="newsletter-input">
+          <button class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 AniStream. Все права защищены.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-vk"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Скрипты -->
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
